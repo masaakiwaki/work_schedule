@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js"></script>
-    <script src="main.js"></script>
+    
     <title>Document</title>
 </head>
 <body>
@@ -17,15 +17,18 @@
         </a>
         <hr class="style1">
     </header>
+
     <nav>　</nav>
+    
     <main>
         <a class="mainHeader">動画</a>
-        <a href="file:///C:/windows/">1. LINE WORKS 概要</a>
-        <a href="file:///C:/windows/">2. LINE WORKS 介護施設での活用・スマート介護との連携</a>
-        <a href="file:///C:/windows/">1. LINE WORKS 価格</a>
-        <br>
+        <ul id="video">
+            <li v-for="video in videos" :key="video.title">
+                <a v-bind:href="video.url">{{ video.title }}</a>
+            </li>
+        </ul>
         <a class="mainHeader">資料</a>
-        <ul id="fileLink">
+        <ul id="catalog">
             <li v-for="catalog in catalogs" :key="catalog.title">
                 <a v-bind:href="catalog.url">{{ catalog.title }}</a>
             </li>
@@ -33,7 +36,9 @@
 
         <p>ダウンロードはリンク先を右クリックしてファイルを保存してください。</p>
     </main>
+
     <aside>　</aside>
+
     <footer>
         <p>動画の完了報告・質疑の内容につきましては拠点の推進メンバーにご連絡ください。</p>
         <table id="area" width="300">
@@ -42,53 +47,7 @@
             </tr>
         </table>
     </footer>
+
 </body>
-<script>
-
-
-const catalogs = [
-    {"title":"概要", "url":"file:///C:/windows/"},
-    {"title":"事例", "url":"file:///C:/windows/"},
-    {"title":"介護事例", "url":"file:///C:/windows/"},
-    {"title":"スマート介護連携", "url":"file:///C:/windows/"}
-    // {"title":"", "url":""},
-]
-
-
-
-const area = {
-    "本社":"a",
-    "ソリューションセンター": "白石達也さん",
-    "大洲":"c",
-    "宇和島": "d",
-    "今治": "e",
-    "新居浜":"f",
-    "四国中央":"g"
-}
-
-new Vue({
-    el:'#fileLink',
-    data: {
-        catalogs:"catalogs"
-    }
-})
-
-
-    
-new Vue({
-    el:'#area',
-    data: {
-      area : area
-    }
-  })
-    
-
-
-
-
-
-
-
-
-</script>
+<script src="main.js"></script>
 </html>
