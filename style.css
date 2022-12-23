@@ -1,0 +1,43 @@
+body {
+    min-height: 100vh;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid; 
+    grid-template: 
+        "header header header" 50px
+        "left   center right " 1fr
+        "footer footer footer" 50px
+        / 200px 1fr 200px;
+  }
+  
+  header {
+    grid-area: header;
+  }
+  
+  main {
+    grid-area: center;
+  }
+  
+  nav {
+    grid-area: left;
+  }
+  
+  aside {
+    grid-area: right;
+  }
+  
+  footer {
+    grid-area: footer;
+  }
+  
+  @media (max-width: 960px) {
+    body {
+      grid-template:
+          "header" 200px
+          "center" 1fr
+          "left "
+          "right "
+          "footer" 200px;
+    }
+  }
