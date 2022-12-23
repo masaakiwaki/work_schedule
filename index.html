@@ -26,9 +26,8 @@
         <br>
         <a class="mainHeader">資料</a>
         <ul id="fileLink">
-            <li v-for="item in items" :key="item.title">
-                
-                <a v-bind:href="item.url">{{ item.title }}</a>
+            <li v-for="catalog in catalogs" :key="catalog.title">
+                <a v-bind:href="catalog.url">{{ catalog.title }}</a>
             </li>
         </ul>
 
@@ -42,12 +41,6 @@
                 <th>{{ name }}</th> <th>{{ value }}</th>
             </tr>
         </table>
-
-
-
-
-
-
     </footer>
 </body>
 <script>
@@ -76,7 +69,7 @@ const area = {
 new Vue({
     el:'#fileLink',
     data: {
-        items: catalogs
+        catalogs:"catalogs"
     }
 })
 
