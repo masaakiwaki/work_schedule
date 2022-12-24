@@ -56,3 +56,12 @@ new Vue({
   }
 })
 
+function sendMail() {
+  let fromAddress = document.getElementById('fromAddress').value;
+  let formMassage = document.getElementById('formMassage').value;
+
+  mailAddress=document.getElementById('fromAddress').value;
+  mailHeader=document.getElementById('fromAddress').value;
+  mailBody=document.getElementById('fromAddress').value;
+  this.location.href=`mailto:${mailAddress}?subject=${mailHeader}&body=${mailBody}`;
+  } 

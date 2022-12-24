@@ -53,15 +53,15 @@
             <div v-if="isChecked" class="createMail">
 
                 <label for="name">メールアドレス</label>
-                <input type="text" name="mailaddress" placeholder="xxx@agusas.co.jp" autocomplete="on" list="mailaddress"/>  
+                <input type="text" id="fromAddress" name="mailaddress" placeholder="xxx@agusas.co.jp" autocomplete="on" list="mailaddress"/>  
                 <datalist id="mailaddress">  
                 <option v-for="n in ['civic','gtr','supra','waki-masaaki@agusas.co.jp']" :key="n">{{n}}</option>
                 </datalist>
                 <br>
                 <a>質疑内容</a>
-                <textarea class="row-5"></textarea>
+                <textarea id="formMassage" class="row-5"></textarea>
                 <br>
-                <button>完了報告を送信</button>
+                <button onclick="sendMail()">完了報告を送信</button>
                 <br>
                 <a>メーラーが立ち上がりますのでそのまま送信してください。</a>
             </div>
