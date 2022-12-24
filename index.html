@@ -28,7 +28,9 @@
                 <a v-bind:href="video.url">{{ video.title }}</a>
             </li>
         </ul>
+
         <a class="mainHeader">資料</a>
+
         <ul id="catalog">
             <li v-for="catalog in catalogs" :key="catalog.title">
                 <a v-bind:href="catalog.url">{{ catalog.title }}</a>
@@ -36,25 +38,35 @@
         </ul>
 
         <p>ダウンロードはリンク先を右クリックしてファイルを保存してください。</p>
+
     </main>
 
     <aside>　</aside>
 
     <footer>
-        <div id="app">
-            <p>■checkboxでv-modelを使う</p>
-     
-            <input type="checkbox" id="checkbox1" v-model="isChecked">
-            <label for="checkbox1">プロパティの値：{{isChecked}}</label> 
-   </div>
+        <div id="isChecked" class="isChecked">
+            <label for="checkbox1" class="checkBox">
+                <input type="checkbox" id="checkbox1" v-model="isChecked">
+                すべての動画の視聴が完了しました。
+            </label> 
+            
+            <div v-if="isChecked" class="createMail">
 
-
-        <p>動画の完了報告・質疑の内容につきましては拠点の推進メンバーにご連絡ください。</p>
-        <table id="area" width="300">
-            <tr v-for="(value, name) in area" :key="value" align="left">
-                <th>{{ name }}</th> <th>{{ value }}</th>
-            </tr>
-        </table>
+                <label for="name">メールアドレス</label>
+                <input type="text" name="mailaddress" placeholder="xxx@agusas.co.jp" autocomplete="on" list="mailaddress"/>  
+                <datalist id="mailaddress">  
+                <option v-for="n in ['civic','gtr','supra','waki-masaaki@agusas.co.jp']" :key="n">{{n}}</option>
+                </datalist>
+                <br>
+                <a>質疑内容</a>
+                <textarea class="row-5"></textarea>
+                <br>
+                <button>完了報告を送信</button>
+                <br>
+                <a>メーラーが立ち上がりますのでそのまま送信してください。</a>
+            </div>
+       </div>
+       
     </footer>
 
 </body>

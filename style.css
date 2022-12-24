@@ -55,14 +55,30 @@ body {
   hr.style1{
     border-top: 1px solid #8c8b8b;
   }
+
+
+.checkBox {
+  text-align: center;
+  background-color: #8c8b8b1c;
+
+}
+
+
+.isChecked{
+  display:flex;
+  flex-flow: column;
+
+}
+.createMail {
+  display:flex;
+  flex-flow: column;
+
+}
+
+
+
+.row-5 {
+  height: calc( 1.3em * 5 );
+  line-height: 1.3;
+}
   
-  /* @media (max-width: 960px) {
-    body {
-      grid-template:
-          "header" 200px
-          "center" 1fr
-          "left "
-          "right "
-          "footer" 200px;
-    } */
-  }
