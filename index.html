@@ -22,6 +22,7 @@
     
     <main>
         <a class="mainHeader">動画</a>
+        
         <ul id="video">
             <li v-for="video in videos" :key="video.title">
                 <a v-bind:href="video.url">{{ video.title }}</a>
@@ -40,6 +41,14 @@
     <aside>　</aside>
 
     <footer>
+        <div id="app">
+            <p>■checkboxでv-modelを使う</p>
+     
+            <input type="checkbox" id="checkbox1" v-model="isChecked">
+            <label for="checkbox1">プロパティの値：{{isChecked}}</label> 
+   </div>
+
+
         <p>動画の完了報告・質疑の内容につきましては拠点の推進メンバーにご連絡ください。</p>
         <table id="area" width="300">
             <tr v-for="(value, name) in area" :key="value" align="left">

@@ -47,3 +47,11 @@ new Vue({
   }
 })
   
+new Vue({
+  el:'#app',
+  data:{
+      //checkboxの状態
+      isChecked: true
+  }
+})
+
