@@ -52,11 +52,12 @@
             
             <div v-if="isChecked" class="createMail">
 
-                <label for="name">メールアドレス</label>
-                <input type="text" id="fromAddress" name="mailaddress" placeholder="xxx@agusas.co.jp" autocomplete="on" list="mailaddress"/>  
-                <datalist id="mailaddress">  
+                <label for="name">社員番号</label>
+                <input type="text" id="employeeNumber" class="employeeNumber" name="employeeNumber" size="6"  maxlength="3" placeholder="社員番号3桁" autocomplete="on" list="mailaddress"/>  
+                <datalist id="employeeNumber">  
                 <option v-for="n in ['civic','gtr','supra','waki-masaaki@agusas.co.jp']" :key="n">{{n}}</option>
                 </datalist>
+
                 <br>
                 <a>質疑内容</a>
                 <textarea id="formMassage" class="row-5"></textarea>
