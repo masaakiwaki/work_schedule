@@ -85,3 +85,11 @@ body {
 .employeeNumber {
   width: 100px;
 }
+
+.addUser {
+  width: 100px;
+}
+
+.employeeNumberInpurForm{
+  margin: 1px;
+}

@@ -16,6 +16,11 @@ const catalogs = [
   // {"title":"", "url":""},
 ]
 
+const menber = [
+  {"num":"641", "name":"waki"},
+  {"num":"555", "name":"ochi"}
+]
+
 const area = {
   "本社":"a",
   "ソリューションセンター": "白石達也さん",
@@ -40,28 +45,94 @@ new Vue({
   }
 })
 
-new Vue({
-  el:'#area',
-  data: {
-    area : area
-  }
-})
+
   
 
 new Vue({
   el:'#isChecked',
   data:{
       //checkboxの状態
-      isChecked: false
+      isChecked: false,
+      users: [{ employeeNumber: ''}]
+  },
+  methods: {
+      add: function(){
+          this.users.push({employeeNumber: ''})
+      },
+      del: function(index){
+          this.users.splice(index, 1)
+      },
   }
 })
 
-function sendMail() {
-  let fromAddress = document.getElementById('fromAddress').value;
-  let formMassage = document.getElementById('formMassage').value;
 
-  mailAddress=document.getElementById('fromAddress').value;
-  mailHeader=document.getElementById('fromAddress').value;
-  mailBody=document.getElementById('fromAddress').value;
+
+
+
+
+function sendMail() {
+
+  let employeeNumberObject = document.getElementsByClassName("employeeNumber");
+  console.log(employeeNumberObject.length)
+  let employeeNumberValueArray = [];
+  for(let i = 0; i < employeeNumberObject.length; i++) {
+    employeeNumberValueArray.push(hankaku2Zenkaku(employeeNumberObject.item(i).value));
+}
+
+
+  for(i in employeeNumberValueArray){
+    for(j in menber){
+      console.log(test[i])
+      console.log(menber[j]["num"])
+      if(employeeNumberValueArray[i] == menber[j]["num"]){
+        console.log(menber[j]["name"])
+      }
+
+      }
+    }
+
+
+
+
+
+  var employeeNumberValueText = employeeNumberValueArray.join('\n');
+  console.log(employeeNumberValueText)
+
+  let qa = document.getElementById("formMassage").value;
+
+  mailBody =`LINE WORKS学習会の視聴が完了しました。
+  
+【視聴完了者】
+${employeeNumberValueText}
+  
+【質疑内容】
+${qa}
+  `
+
+
+  
+  
+  mailAddress="test@hoge.com";
+  mailHeader="【NSB推進】LINE WORKS学習会 視聴完了メール";
+  
+  console.log(mailAddress)
+  console.log(mailHeader)
+  console.log(mailBody)
+  
+  
+  mailBody = mailBody.replace(/\n/g, '%0D%0A')
   this.location.href=`mailto:${mailAddress}?subject=${mailHeader}&body=${mailBody}`;
   } 
+
+
+
+  function hankaku2Zenkaku(str) {
+    return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+        return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+    });
+}
+
+
+
+  
+  
