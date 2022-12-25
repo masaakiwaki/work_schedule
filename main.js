@@ -21,15 +21,12 @@ const menber = [
   {"num":"555", "name":"ochi"}
 ]
 
-const area = {
-  "本社":"a",
-  "ソリューションセンター": "白石達也さん",
-  "大洲":"c",
-  "宇和島": "d",
-  "今治": "e",
-  "新居浜":"f",
-  "四国中央":"g"
+function hankaku2Zenkaku(str) {
+  return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+      return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+  });
 }
+
 
 new Vue({
   el:'#video',
@@ -38,6 +35,7 @@ new Vue({
   }
 })
 
+
 new Vue({
   el:'#catalog',
   data: {
@@ -45,8 +43,6 @@ new Vue({
   }
 })
 
-
-  
 
 new Vue({
   el:'#isChecked',
@@ -66,20 +62,13 @@ new Vue({
 })
 
 
-
-
-
-
 function sendMail() {
-
   let employeeNumberObject = document.getElementsByClassName("employeeNumber");
   console.log(employeeNumberObject.length)
   let employeeNumberValueArray = [];
   for(let i = 0; i < employeeNumberObject.length; i++) {
     employeeNumberValueArray.push(hankaku2Zenkaku(employeeNumberObject.item(i).value));
-}
-
-
+  }
   for(i in employeeNumberValueArray){
     for(j in menber){
       console.log(test[i])
@@ -90,16 +79,10 @@ function sendMail() {
 
       }
     }
-
-
-
-
-
   var employeeNumberValueText = employeeNumberValueArray.join('\n');
   console.log(employeeNumberValueText)
 
   let qa = document.getElementById("formMassage").value;
-
   mailBody =`LINE WORKS学習会の視聴が完了しました。
   
 【視聴完了者】
@@ -109,9 +92,6 @@ ${employeeNumberValueText}
 ${qa}
   `
 
-
-  
-  
   mailAddress="test@hoge.com";
   mailHeader="【NSB推進】LINE WORKS学習会 視聴完了メール";
   
@@ -125,14 +105,3 @@ ${qa}
   } 
 
 
-
-  function hankaku2Zenkaku(str) {
-    return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
-        return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
-    });
-}
-
-
-
-  
-  
